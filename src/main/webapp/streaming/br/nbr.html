@@ -1,0 +1,38 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+            <div class="player">
+
+
+            	<script type="text/javascript" src="http://www.ebcservicos.ebc.com.br/streaming/js/flowplayer-3.2.4.min.js"></script>
+
+                <a id="player" href="#" style="display:block;width:640px;height:450px;"></a>
+
+            	<script>
+                    flowplayer("player", "http://www.ebcservicos.ebc.com.br/flowplayer-3.2.4.swf", {   
+                        plugins: {      
+                            rtmp: { url: 'http://www.ebcservicos.ebc.com.br/flowplayer.rtmp-3.2.3.swf',
+                                    subscribe: true 
+                                  }
+                        },
+                        clip: {  
+                            provider: 'rtmp',
+                            netConnectionUrl: 'rtmp://cp138852.live.edgefcs.net/live/',
+                            url: 'NBRNew@17343',
+                            live: true
+                        }
+                    });
+            	</script>
+
+
+            </div>
+    </body>
+</html>

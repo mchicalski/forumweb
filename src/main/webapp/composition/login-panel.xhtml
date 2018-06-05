@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <p:panelGrid id="login-panel" styleClass="window2 shadow" style="top: 100px; right: 100px; width: 260px;">
+                
+                
+                <p:row>
+                    <p:column colspan="2">
+                        login
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column >
+                        <p:watermark for="username" value="usuario" />  
+                        <p:inputText id ="username" required="true" value="#{userView.connectedUser.username}" />
+                    </p:column>
+                    <p:column rowspan="2" >
+                        <p:commandLink action="#{userView.login}" process="username password" update=":main-form">
+                            <p:graphicImage value="/images/Connect.png" />
+                        </p:commandLink>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column>
+                        <p:password id="password"  value="#{userView.connectedUser.password}" />
+                        <p:watermark for="password" value="senha" />  
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="2">
+                    </p:column>
+                </p:row>
+            </p:panelGrid>
+        </ui:composition>
+    </h:body>
+</html>
+

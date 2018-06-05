@@ -1,0 +1,67 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+<td align="center" height="390" colspan="100%">
+													<!-- include required JavaScript file -->
+													<script src="http://files.cdn.upx.net.br/sandbox/static/library/flowplayer/flowplayer-3.2.4.min.js"></script>	
+
+													<!-- style those players -->
+													<style>
+													a.rtmp {
+														display:block;
+														width:447px;
+														height:330px;	
+														margin:25px 0;
+														text-align:center;
+														background: #fff;
+														border-radius: 15px;
+													}
+
+													a.rtmp img {
+														border:0px;
+													}
+													</style>
+
+													<!-- first player. video is specified in href- attribute -->
+													<a style="background-image:url(img/logo-upx.png)" href="myStream.sdp" class="rtmp"><object width="100%" height="100%" type="application/x-shockwave-flash" data="http://files.cdn.upx.net.br/sandbox/static/library/flowplayer/flowplayer.unlimited-3.2.5.swf?0.7903411015077783" name="fp_34374226_api" id="fp_34374226_api"><param value="true" name="allowfullscreen"><param value="always" name="allowscriptaccess"><param value="high" name="quality"><param value="true" name="cachebusting"><param value="#000000" name="bgcolor"><param value="config={&quot;clip&quot;:{&quot;provider&quot;:&quot;rtmp&quot;,&quot;live&quot;:true,&quot;autoPlay&quot;:true,&quot;url&quot;:&quot;myStream.sdp&quot;},&quot;plugins&quot;:{&quot;rtmp&quot;:{&quot;url&quot;:&quot;flowplayer.rtmp-3.2.3.swf&quot;,&quot;netConnectionUrl&quot;:&quot;rtmp://rtmp.cdn.upx.net.br:80/fb24&quot;}},&quot;playerId&quot;:&quot;fp_34374226&quot;,&quot;playlist&quot;:[{&quot;provider&quot;:&quot;rtmp&quot;,&quot;live&quot;:true,&quot;autoPlay&quot;:true,&quot;url&quot;:&quot;myStream.sdp&quot;}]}" name="flashvars"></object></a>
+
+													<script type="text/javascript">
+													// install player with this one call
+													$f("a.rtmp", "http://files.cdn.upx.net.br/sandbox/static/library/flowplayer/flowplayer.unlimited-3.2.5.swf", { 
+														// configure player to use rtmp plugin 
+														clip: {
+															provider: 'rtmp'
+															,live: true
+															,autoPlay: true
+														}, 
+														// here is our rtpm plugin configuration 
+														plugins: {  
+														  rtmp: {
+															   // use latest RTMP plugin release
+																url: 'flowplayer.rtmp-3.2.3.swf',			
+																netConnectionUrl: 'rtmp://rtmp.cdn.upx.net.br:80/fb24'  
+														  } 
+														}     
+													});
+													</script>
+													<!--
+													<div style="width:100%; height:30px; position: relative; margin-top: -30px; text-align: right">
+														<a href="rtsp://rtmp.cdn.upx.net.br:80/fb24/myStream.sdp" target="_blank" alt="android" title="Assistir ao vivo">
+															<img src="http://www.tvredepaulista.com.br/novo/imagens/android.png" alt="iPhone, iPad" title="Assitir ao vivo" />
+														</a>
+														<a href="rtmp.cdn.upx.net.br:1935/fb24/myStream.sdp/playlist.m3u8" target="_blank">
+															<img src="http://www.tvredepaulista.com.br/novo/imagens/mac.png" alt="iPhone, iPad" title="Assitir ao vivo" style="border:0" />
+														</a>
+													</div>	
+													-->												
+											</td>
+</body>
+</html>

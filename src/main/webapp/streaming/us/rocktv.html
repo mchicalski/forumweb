@@ -1,0 +1,155 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+<div id="header_content-center">
+                        		<div class="moduletable">
+					<script type="text/javascript">
+                function onSilverlightError(sender, args) {
+                    var appSource = "";
+                    if (sender != null &amp;&amp; sender != 0) {
+                        appSource = sender.getHost().Source;
+                    }
+        
+                    var errorType = args.ErrorType;
+                    var iErrorCode = args.ErrorCode;
+        
+                    if (errorType == "ImageError" || errorType == "MediaError") {
+                        return;
+                    }
+        
+                    var errMsg = "Unhandled Error in Silverlight Application " + appSource + "\n";
+        
+                    errMsg += "Code: " + iErrorCode + "    \n";
+                    errMsg += "Category: " + errorType + "       \n";
+                    errMsg += "Message: " + args.ErrorMessage + "     \n";
+        
+                    if (errorType == "ParserError") {
+                        errMsg += "File: " + args.xamlFile + "     \n";
+                        errMsg += "Line: " + args.lineNumber + "     \n";
+                        errMsg += "Position: " + args.charPosition + "     \n";
+                    }
+                    else if (errorType == "RuntimeError") {
+                        if (args.lineNumber != 0) {
+                            errMsg += "Line: " + args.lineNumber + "     \n";
+                            errMsg += "Position: " + args.charPosition + "     \n";
+                        }
+                        errMsg += "MethodName: " + args.methodName + "     \n";
+                    }
+        
+                    throw new Error(errMsg);
+                }
+                
+            </script>
+<div style="display: none;">
+    <img alt="" src="//s4.histats.com/stats/0.php?79351&amp;@f16&amp;@g0&amp;@h2&amp;@i1&amp;j1359669616578&amp;@k15737&amp;@l2&amp;@mRocktelevision%20-%20Online%20Rock%20Music&amp;@n0&amp;@o1000&amp;@q0&amp;@r0&amp;@s0&amp;@tit&amp;@u1440&amp;@vhttp%3A%2F%2Fwww.rocktelevision.com%2Findex.php&amp;@w" id="imgpdd">
+</div>
+<script type="text/javascript">
+    var count = 2;
+    
+    function pluginLoaded(sender, args) {
+    var app = sender.getHost();
+    app.Content.VideoPlayer.SelectionChanged = callBack;
+                }
+        
+    function callBack(sender, args) {
+    //****Call Counters****
+    setHistats(count++);
+    _gaq.push(['_trackPageview']);               
+    }
+        
+    function setHistats(count) {
+		var idcounter=79351;
+		var minutes = 1000 * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var d = new Date();
+		var t = d.getTime();
+		var y = t / days;
+		var title = encodeURIComponent(document.title);
+		var url = encodeURIComponent(location.href);
+		var pdd = document.getElementById("imgpdd");
+		pdd.src="//s4.histats.com/stats/0.php?" + idcounter +"&amp;@f16&amp;@g0&amp;@h" + count + "&amp;@i1&amp;j" + t + "&amp;@k" + Math.round(y) + "&amp;@l" + count + "&amp;@m" + title + "&amp;@n0&amp;@o1000&amp;@q0&amp;@r0&amp;@s0&amp;@tit&amp;@u1440&amp;@v" + url + "&amp;@w";
+     };
+</script>
+
+<link type="text/css" rel="stylesheet" href="http://www.rocktelevision.com/streaming/stile_menu.css">
+            
+<div class="cassone">
+    <div class="cont_tv">
+        <object width="630" height="325" type="application/x-silverlight-2" data="data:application/x-silverlight-2,">
+			<param value="http://www.rocktelevision.com/streaming/ClientBin/RockPlayer.xap" name="source">
+			<param value="onSilverlightError" name="onError">
+			<param value="pluginLoaded" name="onLoad">
+			<param value="White" name="background">
+			<param value="3.0.40818.0" name="minRuntimeVersion">
+			<param value="true" name="autoUpgrade">
+<param value="true" name="windowless">
+			<param value="config=http://www.rocktelevision.com/rocktelevision.xml,image=http://www.rocktelevision.com/copertina.jpg,autostart=true,showchannels=true,showtimers=false" name="initParams">
+			<a style="text-decoration: none" href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=3.0.40818.0"> 
+				<img style="border-style: none" alt="Get Microsoft Silverlight" src="http://go.microsoft.com/fwlink/?LinkId=161376"> 
+			</a>
+        </object>
+    <iframe style="visibility:hidden;height:0px;width:0px;border:0px" id="_sl_historyFrame"></iframe></div>
+</div>
+                
+             <!-- Google Analytics START -->
+            
+                <script type="text/javascript">
+                    var _gaq = _gaq || [];
+                    _gaq.push(['_setAccount', 'UA-6998834-1']);
+                    _gaq.push(['_trackPageview']);
+            
+                    (function() {
+                        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                    })();
+                </script>
+            
+                <!-- Google Analytics END -->
+         
+        <!-- Histats.com  START -->
+        <!-- <script type="text/javascript">        document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15.js%27 type=%27text/javascript%27%3E%3C/script%3E"));</script>
+        
+            <a href="http://www.histats.com" target="_blank" title="contatore per sito">
+        
+                <script type="text/javascript">
+                    try {
+                        Histats.start(1, 79351, 4, 0, 0, 0, "00000000");
+                        Histats.track_hits();
+                    } catch (err) { };
+                </script> 
+        
+            </a> -->
+            <!--Histats.com  END -->
+<div class="colonna_destra">
+    <div class="distanziatore">
+        <a href="http://www.rocktelevision.com/index.php?option=com_sobi2&amp;Itemid=10"><img width="300" height="70" src="/streaming/rocklyrics.jpg"></a>
+    </div>
+    <a href="http://194.116.73.242/index.php?option=com_chronocontact&amp;chronoformname=partner_form">
+        <img width="300" height="250" class="immaginilink" src="/images/stories/Partner.gif">
+    </a>
+   <!-- 
+    <object height="250" width="300" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,32,18" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+        <param name="src" value="/images/stories/300x250.swf?clickTAG=http://travel.eni.com/it_IT/promotions/nuovo-iperself-time.shtml?WT.srch=1&WT.mc_id=ive2011_ips2008" />    
+        <param name="name" value="Eni" /><param name="wmode" value="transparent">
+		<embed height="250" width="300" name="Eni" wmode="transparent" src="/images/stories/300x250.swf?clickTAG=http://travel.eni.com/it_IT/promotions/nuovo-iperself-time.shtml?WT.srch=1&WT.mc_id=ive2011_ips2008" type="application/x-shockwave-flash"></embed>
+</object> -->
+</div>
+
+
+	
+<!--
+<script type="text/javascript">window.onload = controllobanner;</script>-->		</div>
+	
+                </div>
+    </body>
+</html>

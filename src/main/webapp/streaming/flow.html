@@ -1,0 +1,39 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- 1. jquery library -->
+<script
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js">
+</script>
+ 
+<!-- 2. flowplayer -->
+<script src="http://releases.flowplayer.org/5.3.2/flowplayer.min.js"></script>
+ 
+<!-- 3. skin -->
+<link rel="stylesheet" type="text/css"
+   href="http://releases.flowplayer.org/5.3.2/skin/minimalist.css" />
+
+    </head>
+    <body>
+
+
+        
+<!-- flowplayer with RTMP configuration option -->
+<div class="flowplayer" data-rtmp="rtmp://localhost/flvplayback/" style="width: 640px; height: 480px;">
+
+    <video autoplay>
+    <!-- consumed by flash -->
+    <source type="video/flash" src="test"/>
+ 
+    <!-- consumed by html5 video tag -->
+  </video>
+ 
+</div>
+    </body>
+</html>

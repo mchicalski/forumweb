@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body style="margin-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px;">
+        <ui:composition>
+            <div class="shadow" style="position: fixed; width: 300px; height: 700px; z-index: 3000;">
+                <p:tabView id="tab1" style="height: 100%;" activeIndex="0">
+                    <p:tab title="." titleStyle="background-position: center; background-image: url(images/Table-Multiple.png); background-repeat:no-repeat !important;">
+                        <p:scrollPanel style="height: 640px;" mode="native">
+                            <p:tree value="#{treeBean.root}" var="node" dynamic="true" cache="false"  style="width: 98%; height: 98%;"
+                            selectionMode="single"  selection="#{treeBean.selectedNode}" id="tree" >  
+
+                                <p:ajax event="expand" update=":main-form:growl" listener="#{treeBean.onNodeExpand}" />  
+                                <p:ajax event="collapse" update=":main-form:growl" listener="#{treeBean.onNodeCollapse}" />  
+                                <p:ajax event="select" update=":main-form:growl" listener="#{treeBean.onNodeSelect}"/>  
+                                <p:ajax event="unselect" update=":main-form:growl" listener="#{treeBean.onNodeUnselect}"/>  
+
+
+                                <p:treeNode>  
+                                    <h:outputText value="#{node}" style="color: grey;"/>  
+                                </p:treeNode>  
+                            </p:tree>  
+                        </p:scrollPanel>
+                    </p:tab>
+                    <p:tab title="." titleStyle="background-position: center; background-image: url(images/Table-Relationship.png); background-repeat:no-repeat !important;">
+                    </p:tab>
+
+                    <p:tab title="." titleStyle="background-position: center; background-image: url(images/Comments.png); background-repeat:no-repeat !important;">
+                        <div style="height: 100%;">
+                            <p:outputPanel id="chat" style="height: 300px;">  
+                                chat
+                                <script type="text/javascript">
+                                    
+                                    function handleScroll() {
+                                        var chatContent = $('.scrolll');  
+                                        //keep scroll  
+                                        chatContent.scrollTop($('.messages').height());  
+                                    }
+                                </script>
+                                <p:scrollPanel id="scroll" styleClass="scrolll" mode="native" style="width: 100%; height: 250px;">
+                                    <h:dataTable styleClass="messages" value="#{chatView.list()}" var="msg">
+                                        <h:column>
+                                            #{msg}
+                                        </h:column>
+                                    </h:dataTable>
+                                </p:scrollPanel>
+                                <table>
+                                    <tr>
+                                        <td width="95%">
+                                            <p:inputText id="message" value="#{chatView.message}" style="width: 95%;"/>
+                                        </td>
+                                        <td>
+                                            <p:commandLink action="#{chatView.sendMessage()}" process="message">
+                                                <p:graphicImage value="/images/Comment-Add.png" />
+                                            </p:commandLink>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </p:outputPanel>      
+                            <p:socket channel="/chat-#{teamView.selected.name}">
+                                <p:ajax event="message" update=":main-form:tab1:chat" oncomplete="handleScroll()"/>
+                            </p:socket>
+                        </div>
+                    </p:tab>
+                    <p:tab title="." titleStyle="background-position: center; background-image: url(images/rdf_flyer.32.png); background-repeat:no-repeat !important;">
+                            <p:outputPanel id="ontologies" style="height: 250px;">  
+                                importar ontologias (todos os conceitos serao importados) 
+                                <p:fileUpload fileUploadListener="#{ontologyView.handleFileUpload}" auto="false" styleClass="none" label="procurar owl" mode="advanced" sizeLimit="1048576" update="ontologies-table :main-form:widgets-panel :main-form:tab1:tree"/>  
+                                <h:dataTable id ="ontologies-table" value="#{ontologyView.listOntologiesBySelectedTeam()}" var="ontology">
+                                    <h:column>
+                                        #{ontology.fileName}
+                                    </h:column>
+                                </h:dataTable>
+                                <p:commandButton action="#{ontologyView.merge()}"/>
+                            </p:outputPanel>   
+                    </p:tab>
+                    <p:tab title="." titleStyle="background-position: center; background-image: url(images/Group.png); background-repeat:no-repeat !important;">
+                        participar do grupo
+                    </p:tab>
+                    <p:tab title="." titleStyle="background-position: center; background-image: url(images/Text.png); background-repeat:no-repeat !important;">
+                        templates
+                        <p:commandButton value="load" action="#{templateView.insert()}"/>
+                        <p:scrollPanel style="height: 600px;" mode="native">
+                            <h:dataTable value="#{templateView.findAll()}" var="template">
+                            <h:column>
+                                #{template.text}
+                                <hr/>
+                            </h:column>
+                            <h:column>
+                                #{template.type}
+                            </h:column>
+                        </h:dataTable>
+                        </p:scrollPanel>
+                    </p:tab>
+                </p:tabView>
+             </div>
+            <div style="height: 100%; width: 100%;">
+
+            <p:outputPanel id="widgets-wrapper">
+                <div style="height: 100%; width: 100%;">
+                <ui:insert >
+                    <ui:include src="widgets-panel.xhtml"/>
+                </ui:insert>
+                </div>
+            </p:outputPanel>
+                
+
+                </div>
+            <script type="text/javascript">
+$(window).scroll(function(){
+  $('.fixed_div').css('top',-$(window).scrollTop() + 80);
+});            
+            </script>
+            
+
+        </ui:composition>
+    </h:body>
+</html>
+

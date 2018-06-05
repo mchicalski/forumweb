@@ -1,0 +1,662 @@
+<html>
+
+<head>
+	<script src="jwplayer/jwplayer.js"></script>
+        <script type="text/javascript" src="../resources/js/jquery-1.8.2.min.js"></script>
+	<script>jwplayer.key="vdmnmdK3YPT/RoyJFdbwoogxLwCjHnQSBYR7vQ=="</script>
+        <link rel="stylesheet" href="tvfy.css" />
+
+</head>
+
+<body style="background-image: url('bg_body.gif'); background-repeat: repeat; margin-left: 0px;">
+
+    <div style="position: fixed; margin-top: -490px; margin-left: 0px; background-color: black; width: 100%;">
+
+    <table >
+        <tr>
+            <td>
+               <div id='my-video' style="margin-left: auto; margin-right: auto; width: 854px; height: 480px; ">
+                   <br/>
+                   <br/>
+                    <h2 style="vertical-align: central; text-align: center; color: whitesmoke;">
+                       fta streams
+                   </h2>
+                   <p align="center" >
+
+                    <img src="hypnofrog.gif"/>
+                   <h2 style="vertical-align: central; text-align: center; color: whitesmoke;">
+                       fta streams
+                   </h2>
+                       
+                       
+                   </p>
+                   
+               </div> 
+            </td>
+        </tr>
+    </table>
+    </div>
+    <script type='text/javascript'>
+//            jwplayer('my-video').setup({
+//                file: 'http://www.youtube.com/watch?v=-gP_Q2myNWo',
+//                width: '960',
+//                height: '480',
+//                autostart: 'true'
+//            });
+//            load('http://www.youtube.com/watch?v=-gP_Q2myNWo');
+        
+        function load(file) {
+            //jwplayer().remove();
+            jwplayer('my-video').setup({
+                file: file,
+                width: '960',
+                height: '480',
+                autostart: 'true'
+            });
+        }
+        
+        function loadHtml() {
+            $("#my-video").html("<object data='http://tv-msn.com/natgeo.html' style='width: 960px; height: 480px;'> </object>");
+        }
+        
+        function loadHtml2(id) {
+            $("#my-video").html("<object data='"+id+ "' style='width: 960px; height: 480px; overflow-x: hidden; overflow-y: hidden;'> </object>");
+        }
+    </script>
+
+    
+    <div style="position: fixed; display: block; margin-left: 75%; margin-top: -400px;">
+        <br/>
+      <img src="http://storage.googleapis.com/support-kms-prod/SNP_2922337_en_v0"/>
+      <br/>
+    </div>
+    
+    <div style="width: 100%; margin-top: 480px;">
+        <table class="epg-header" style="width: 1000px; position: fixed; margin-top: -40px;">
+            <td style="width: 165px;">
+                channel
+            </td>
+            <td style=" height: 35px;"> 
+                23:30
+            </td>
+            <td>
+                00:00
+            </td>
+            <td style="height: 35px;"> 
+                00:30
+            </td>
+            <td>
+                01:00
+            </td>
+        </tr>
+            
+        </table>
+        
+        
+    </div>
+
+    <table class="epg-table" onclick="loadHtml2('br/mtv.html');">
+        <tr style="height: 72px;">
+            <td style="width: 160px;">
+                <div style="position: absolute; ">
+                    <img src="24/br.png"/>
+                </div>
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/3/3e/MTV_Logo_2010.png"/>
+
+       
+            </td>
+
+            
+            <td style="width: 800px;"> 
+                <a class="epg-link" href="#" onclick="loadHtml2('br/mtv.html');">
+                    live
+                </a>
+            </td>
+            
+        </tr>
+    </table>
+ 
+    <table class="epg-table" onclick="loadHtml2('br/terraviva.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/pt/4/45/TV_Terra_Viva.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('br/terraviva.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+        
+    <table class="epg-table" onclick="alert('$');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                ADS
+            </td>
+            <td style="width: 240px;">
+                <a class="epg-link" >
+                     <img src="http://storage.googleapis.com/support-kms-prod/SNP_2922339_en_v0"/> 
+                </a>            
+            </td>
+        </tr>
+    </table> 
+    
+    
+    <table class="epg-table">
+        <tr style="height: 72px; ">
+            <td style="width: 160px; background-color: #fff">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/1/13/National_Geographic_Channel.svg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml();">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    <table class="epg-table" onclick="loadHtml2('br/nbr.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/1/1b/NBRTV.png"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('br/nbr.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+        
+    <table class="epg-table" onclick="loadHtml2('br/bloomberg.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/6/66/Bloomberg_Television_logo.svg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('br/bloomberg.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    <table class="epg-table" onclick="alert('$');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img src="http://www.google.com/images/logos/google_logo_41.png"/> 
+            </td>
+            <td >
+                <a class="epg-link" >
+                     <img src="http://storage.googleapis.com/support-kms-prod/SNP_2922296_en_v0"/> 
+                </a>            
+            </td>
+            <td >
+                <a class="epg-link" >
+                     <img src="http://storage.googleapis.com/support-kms-prod/SNP_2922291_en_v0"/> 
+                </a>            
+            </td>
+        </tr>
+    </table> 
+    <table class="epg-table" onclick="loadHtml2('br/mix.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/9/92/LOGO_MIX_TV.svg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('br/mix.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    <table class="epg-table" onclick="loadHtml2('br/rbtv.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/pt/3/37/Logo_Rede_Brasil.png"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('br/rbtv.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    <table class="epg-table" onclick="alert('$');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img src="http://www.google.com/images/logos/google_logo_41.png"/> 
+            </td>
+            <td style="width: 240px;">
+                <a class="epg-link" >
+                     <img src="http://storage.googleapis.com/support-kms-prod/SNP_2922291_en_v0"/> 
+                </a>            
+            </td>
+            <td style="width: 65px;">
+     
+            </td>
+            <td style="width: 480px;">
+                <a class="epg-link" >
+                     <img src="http://storage.googleapis.com/support-kms-prod/SNP_2922338_en_v0"/> 
+                </a>            
+            </td>
+        </tr>
+    </table> 
+    <table class="epg-table">
+        <tr style="height: 72px; ">
+            <td style="width: 160px; background-color: #fff">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/pt/4/46/Discovery_Channel_International.svg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('http://tv-msn.com/discovery.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/univesp.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/b/ba/UniTv.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('br/univesp.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+
+    <table class="epg-table" onclick="loadHtml2('br/playtv.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/c/c8/PlayTV_logomarca.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('br/playtv.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+
+    <table class="epg-table" onclick="loadHtml2('http://www.tv-msn.com/history.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px; background-color: #fff;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/f/f5/History_Logo.svg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('http://www.tv-msn.com/history.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('it/105.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/it/0/01/105.png"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('it/105.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    <table class="epg-table" onclick="loadHtml2('br/recordnews.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/pt/2/28/Record_News.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('br/recordnews.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    <table class="epg-table" onclick="loadHtml2('http://edition.cnn.com/video/flashLive/live.html?stream=1');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/8/8b/Cnn.svg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('http://edition.cnn.com/video/flashLive/live.html?stream=1');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    <table class="epg-table" onclick="loadHtml2('br/tvdiario.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/0/02/Rede_Di%C3%A1rio.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('br/tvdiario.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    <table class="epg-table" onclick="loadHtml2('de/deluxe.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/f/fe/DeluxeMusicHD.svg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('de/deluxe.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('http://www.rac105.cat/player/rac105-tv');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/a/ab/Rac105.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('http://www.rac105.cat/player/rac105-tv');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/reggae.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                reggae tv
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('br/reggae.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('mx/green.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="mx/green.png"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" href="#" onclick="loadHtml2('mx/green.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/redetv.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/9/9e/Rede_TV_HD_3D_logo.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" onclick="loadHtml2('br/redetv.html');">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/climatempo.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+               CLIMA TEMPO
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/climatempo.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/3/31/TV_Brasil_logo.png"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link">
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('us/rocktv.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="us/rocktv.png"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/cultura.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/0/01/Tvcultura3.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/taroba.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/e/e7/TV_Tarob%C3%A1_CASCAVEL.png"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/mercosul.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="br/mercosul1.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/parana-educativa.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="br/tve.png"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table> 
+   
+    <table class="epg-table" onclick="loadHtml2('br/senado.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/commons/6/65/Logo_TV_Senado.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/unb.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="br/unb.png"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>    
+    
+    <table class="epg-table" onclick="loadHtml2('br/tvurbana.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                TV urbana poa
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>    
+    
+    <table class="epg-table" onclick="loadHtml2('br/ucstv.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://www.ucs.br/ucs/tplUCSTVCapaNovo/imagens/marca_ucstv.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/mocinha.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="br/mocinha.png"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table> 
+    
+    <table class="epg-table" onclick="loadHtml2('br/sbt.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/pt/a/ac/Sistema_Brasileiro_de_Televis%C3%A3o.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table> 
+   
+    <table class="epg-table" onclick="loadHtml2('br/paulista.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://www.tvredepaulista.com.br/novo/imagens/logo_topo.png"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table> 
+    <table class="epg-table" onclick="alert('$');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                ADS
+            </td>
+            <td style="width: 480px;">
+                <a class="epg-link" >
+                     <img src="http://storage.googleapis.com/support-kms-prod/SNP_2922338_en_v0"/> 
+                </a>            
+            </td>
+            <td style="width: 480px;">
+                <a class="epg-link" >
+                     <img src="http://storage.googleapis.com/support-kms-prod/SNP_2922338_en_v0"/> 
+                </a>            
+            </td>
+        </tr>
+    </table> 
+    
+    <table class="epg-table" onclick="loadHtml2('us/iss.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://static-cdn1.ustream.tv/i/channel/picture/9/4/0/8/9408562/9408562_iss_hr_1330361780,66x66,r:1.jpg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/ufpr.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+UFPR TV
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('br/usp.html');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://iptv.usp.br/portal/imgs_/logo_header.png"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    <table class="epg-table" onclick="loadHtml2('http://www.im1.tv');">
+        <tr style="height: 72px; ">
+            <td style="width: 160px;">
+                <img style="max-width: 120px; max-height: 64px;" src="http://upload.wikimedia.org/wikipedia/de/3/3c/IM1_Logo_2012.svg"/> 
+            </td>
+            <td style="width: 800px;">
+                <a class="epg-link" >
+                    live
+                </a>            
+            </td>
+        </tr>
+    </table>
+    
+    </div>
+    
+</html>

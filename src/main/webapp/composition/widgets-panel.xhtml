@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <p:outputPanel id="widgets-panel">
+              
+                <script type="text/javascript">
+                   /* <![CDATA[ */
+                     jsPlumb.bind("ready", function() {
+                        
+                        jsPlumb.importDefaults({
+                                // default drag options
+                                DragOptions : { cursor: 'pointer', zIndex:2000 },
+                                // default to blue at one end and green at the other
+                                EndpointStyles : [{ fillStyle:'#225588' }, { fillStyle:'#558822' }],
+                                // blue endpoints 7 px; green endpoints 11.
+                                Endpoints : [ [ "Dot", {radius:7} ], [ "Dot", { radius:7 } ]],
+                                // the overlays to decorate each connection with.  note that the label overlay uses a function to generate the label text; in this
+                                // case it returns the 'labelText' member that we set on each connection in the 'init' method below.
+                                ConnectionOverlays : [
+                                        [ "Arrow", { location: 1 , foldback: 1 , fillStyle: "white", width: 12, length: 12} ]
+                                ]
+                        });
+                        
+                        jsPlumb.setRenderMode(jsPlumb.SVG);
+
+                    });
+                  /* ]]> */
+                </script>
+                <h:dataTable value="#{treeBean.resources}" var="widget">
+                      <h:column>
+                          <div id="#{widget.id}" style="width: 290px; height: 40px;" class="window">
+                              
+
+                              <p:panelGrid id="eba" style="width: 290px; height: 40px;" styleClass="shadow">
+                                  <p:row>
+                                      <p:column>
+                                          <p:commandLink action="#{resourceView.setOpenedResource(widget)}" update="eba" styleClass="header-link">
+                                          <p:graphicImage value="/images/Table.png"/> 
+                                        <!--  <p:graphicImage value="/images/Comment.png" style="margin-left: -8px; width: 24px;" rendered="#{!resourceView.compareOpenedResource(widget)}"/>
+                                          --> <p:graphicImage value="/images/Coin-Single-Gold.png" style="margin-left: -8px; width: 24px;" rendered="#{!voteView.alreadyVotedResource(widget)}"/>
+                                         <b>#{widget.toString()} </b>
+                                          </p:commandLink>
+                                          
+                                          <p:outputPanel rendered="#{resourceView.compareOpenedResource(widget)}">
+                                                <ui:insert>
+                                                    <ui:include src="issue-panel.xhtml">
+                                                        <ui:param name="widget" value="#{widget}"/>
+                                                    </ui:include>
+                                                </ui:insert>
+                                              
+                                          </p:outputPanel>
+                                          <p:remoteCommand name="update#{widget.id}" update="eba"/>
+                                          
+                                      </p:column>
+                                  </p:row>
+
+                              </p:panelGrid> 
+                          </div>
+                      </h:column>
+                </h:dataTable>
+              
+   
+              
+              <script type="text/javascript">
+                  jsPlumb.reset();
+                    function handlemsg(data) {
+                        //updateEdges();
+                        //jsPlumb.reset();
+                        window['update' + data]();
+//                        jsPlumb.select({source: data}).each(function(connection) {
+//                            var edge = new Object();
+//                            edge.source = connection.target[0];
+//                            edge.target = connection.source[0];
+//                            alert(connection.target[0])
+//                        });
+                        updateEdges();
+                        //jsPlumb.reset();
+                        //alert('update' + data );
+                        //jsPlumb.repaintEverything();
+                    }
+              </script>
+
+                <p:remoteCommand name="updateEdges" update=":main-form:edges-table" onsuccess="jsPlumb.reset();"/>
+                <h:dataTable id="edges-table" value="#{treeBean.edges}" var="edge">
+                      <h:column>
+                          <script type="text/javascript">
+                               /* <![CDATA[ */
+                               var select = $("<span style='opacity: #{treeBean.edgeOpacity(edge)};' title='#{edge.text}'> #{edge.metaproperties} #{treeBean.edgeImage(edge)} </span>");
+                            //var select2 = $("");
+                            jsPlumb.connect({
+                                source: $("##{edge.source.id}"),
+                                target: $("##{edge.target.id}"),
+                                paintStyle:{lineWidth:1, strokeStyle: '#555', dashstyle: "16 #{treeBean.edgeSpacing(edge)}"},
+                                
+                                anchors:["Continuous", "Continuous"],
+                                endpoint:"Blank",
+                                //label: "abc",
+                                connector: "Straight",
+                                overlays:[
+                                    ["Custom", {
+                                        create:function() {
+                                            return select;                
+                                        }
+                                    }]
+                                ]
+                            });
+                                /* ]]> */
+                          </script>
+                      </h:column>
+                </h:dataTable>
+                <script type="text/javascript">
+                    $(function() {
+                    initDagrePlumb();
+                    function initDagrePlumb() {
+                        var nodes = new Array();
+                        $.each($(".window"), function(name, obj) {
+                            obj.width = 350;
+                            obj.height = 180;
+                            nodes[name] = obj;
+                            jsPlumb.draggable(obj);
+//                            $(obj).bind("click", function(){
+//                                var top = $(obj).offset().top;
+//                                var left = $(obj).position().left;
+//                                $(window).scrollTop( top + 240);
+//                                $(window).scrollLeft( left- 100 - $(window).width()/2 );
+//                            } );
+                        });
+
+                        var edges = new Array();
+                        var i = 0;
+                        jsPlumb.select().each(function(connection) {
+                            var edge = new Object();
+                            edge.source = connection.target[0];
+                            edge.target = connection.source[0];
+                            edge.label = "";
+                            edges[i++] = edge;
+                        });
+                        
+                        dagre.layout()
+                        .nodes(nodes)
+                        .edges(edges)
+                        .run();
+                        
+                        $.each(nodes, function(name, obj) {
+                            $("#"+obj.id).css({"left": obj.dagre.x + 150});
+                            $("#"+obj.id).css({"top": obj.dagre.y});
+                        });
+                        
+                        $.each($(".window"), function(name, obj) {
+                            $(obj).bind("mousedown", function(){
+                                $.each($(".window"), function(name, e) {
+                                    $(e).css("zIndex", 3);
+                                });
+                                $(obj).css("zIndex", 2001);
+                            } );
+                        });
+
+                        jsPlumb.repaintEverything();
+                    }
+                });
+        
+        
+            </script>
+
+                                            <script type="text/javascript">
+                                    function abc(obj) {
+                                        //alert($('#'+obj));
+                                var top = $('#'+obj).offset().top;
+                                var left = $('#'+obj).position().left;
+                                $('#'+obj).addClass("active");
+$.each($(".window"), function(name, e) {
+    $(e).css("zIndex", 3);
+});
+$('#'+obj).css("zIndex", 2001);
+ //$('#'+obj).effect("shake", {distance: 8}, 50);
+                                setTimeout(function(){ $('#'+obj).removeClass("active"); }, 1500 );
+                                $(window).scrollTop( top - 300);
+                                $(window).scrollLeft( left - $(window).width()/2 );
+                                //alert('foi');
+
+                                    }
+                                </script>
+              
+              <p:socket channel="/team-#{teamView.selected.name}" onMessage="handlemsg"/>
+              
+            </p:outputPanel>
+        </ui:composition>
+    </h:body>
+</html>
+

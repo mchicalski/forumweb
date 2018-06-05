@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition>
+          <p:outputPanel id="issues-panel">
+
+              <h:dataTable value="#{issueView.issues}" var="issue" style="border-spacing: 0; border-width: 0px;" styleClass="window shadow">
+
+                    <h:column >
+                        <f:facet name="header">
+                            <div style="background-color: #ddd; border-spacing: 0; border-width: 0px;" styleClass="shadow window"> Questões </div>
+                        </f:facet>
+                        
+                        <p:commandLink action="#{issueView.open(issue)}" styleClass="header-link">
+                                  <p:graphicImage value="/images/#{issue.kind}.png"/> 
+                                  <p:graphicImage value="/images/Coin-Single-Gold.png" style="margin-left: -8px; width: 24px;" rendered="#{!voteView.alreadyVotedIssue(issue)}"/>
+                                  #{issue.kind}
+                              </p:commandLink>
+                        <p:outputPanel id="oba" >
+                              <p:outputPanel rendered="#{issueView.compareOpenedIssue(issue)}">
+                                  <ui:insert>
+                                      <ui:include src="idea-panel.xhtml">
+                                          <ui:param name="issue" value="#{issue}"/>
+                                      </ui:include>
+                                  </ui:insert>
+                              </p:outputPanel> 
+                            </p:outputPanel>
+                    </h:column>
+                    
+                </h:dataTable>
+              <!--
+                <p:panelGrid style="width: 290px;" styleClass="shadow">
+                    <p:row>
+                        <p:column>
+                            Issues
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column>
+                            <p:graphicImage value="/images/Table-Hierarchy.png"/> 
+                             Taxonomia
+                             <p:outputPanel rendered="#{true}">
+                                <ui:insert>
+                                        <ui:include src="idea-panel.xhtml"/>
+                                </ui:insert>
+                             </p:outputPanel>
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column>
+                            <p:graphicImage value="/images/Key-E.png"/> 
+                             Essencia
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column>
+                            <p:graphicImage value="/images/Key-D.png"/> 
+                             Dependencia
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column>
+                            <p:graphicImage value="/images/Key-I.png"/> 
+                             Identidade
+                        </p:column>
+                    </p:row>
+                    <p:row>
+                        <p:column>
+                            <p:graphicImage value="/images/Key-U.png"/> 
+                             Unidade
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+              -->
+ 
+            </p:outputPanel>
+        </ui:composition>
+    </h:body>
+</html>
+

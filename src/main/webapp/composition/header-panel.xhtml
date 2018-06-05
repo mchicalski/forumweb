@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            
+            <h:outputStylesheet  library="css" name="forumweb.css"/>
+            <script src="resources/js/jquery.jsPlumb-1.3.16-all-min.js" type="text/javascript"></script>
+            <script src="resources/js/dagre.js" type="text/javascript"></script>
+            <div class="header-bar">
+                <table width="100%;" class="header">
+                    <td align="left">
+                        <table style="margin-left: 8px;">
+                            <td>
+                                <p:graphicImage value="/images/House.png" rendered="#{userView.connected}"/>
+                            </td>
+                            <td>
+                                <p:commandLink value="home" action="#{headerView.setOpenView('home')}" rendered="#{userView.connected}" process="@none" styleClass="header-link" update=":main-form"/>
+                            </td>
+                            <p:outputPanel rendered="#{headerView.compareView('team')}">
+                            <td width="20px" align="center">
+                                >
+                            </td>
+                            <td>
+                                <p:graphicImage value="/images/Group.png"/>
+                            </td>
+                            <td>
+                                <p:commandLink value="#{teamView.selected.name}" action="#{headerView.setOpenView('team')}" process="@none" styleClass="header-link" update=":main-form"/>
+                            </td>
+                            </p:outputPanel>
+                        </table>
+                    </td>
+                    <td align="right">
+                        <table style="margin-right: 8px;">
+                            <p:outputPanel rendered="#{!userView.connected}">
+                                <td>
+                                    <p:graphicImage value="/images/User-Gray.png"/>
+                                </td>
+                                <td>
+                                    <p:commandLink value="login" action="#{headerView.setOpenView('login')}" process="@none" styleClass="header-link" update=":main-form"/>
+                                </td>
+                                <td width="20px" align="center">
+                                    |
+                                </td>
+                                <td>
+                                    <p:graphicImage value="/images/User-Add.png"/>
+                                </td>
+                                <td>
+                                    <p:commandLink value="registrar" action="#{headerView.setOpenView('register')}" process="@none" styleClass="header-link" update=":main-form"/>
+                                </td>
+                            </p:outputPanel>
+                                
+                            <p:outputPanel rendered="#{userView.connected}">
+                                <td>
+                                    <h:outputText value="#{userView.connectedUser.username}" rendered="#{userView.connected}"/>
+                                </td>
+                                <td>
+                                    <p:graphicImage value="/images/Door-In.png"/>
+                                </td>
+                                <td>
+                                    <p:commandLink value="logout" action="#{userView.logout()}" process="@none" styleClass="header-link" update=":main-form"/>
+                                </td>
+                            </p:outputPanel>
+                        </table>
+                    </td>
+                </table>
+            </div>
+            
+        </ui:composition>
+    </h:body>
+</html>
+

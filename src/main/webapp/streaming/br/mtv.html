@@ -1,0 +1,38 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js">
+</script>
+ 
+<!-- 2. flowplayer -->
+<script src="http://releases.flowplayer.org/5.3.2/flowplayer.min.js"></script>
+ 
+<!-- 3. skin -->
+<link rel="stylesheet" type="text/css"
+   href="http://releases.flowplayer.org/5.3.2/skin/minimalist.css" />
+
+    </head>
+    <body>
+        <div class="player" style="width: 100px; height: 150px; background-color: red;">
+</div>
+
+        <script>
+// run script after document is ready
+$(function() {
+ 
+   // install flowplayer to an element with CSS class "player"
+   $(".player").flowplayer({ 
+       rtmp: 'rtmp://ev.mm.uol.com.br/liverepeater/mtvcast_flash.sdp'
+   });
+ 
+});
+</script>
+    </body>
+</html>

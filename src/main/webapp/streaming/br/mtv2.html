@@ -1,0 +1,25 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="../jwplayer/jwplayer.js"></script>
+
+    </head>
+    <body>
+        <div id="v"></div>
+        <script>
+            jwplayer('v').setup({
+                flashplayer: 'flash.swf',
+                file: 'rtmp://ev.mm.uol.com.br/liverepeater/mtvcast_flash.sdp',
+                width: '900',
+                height: '450',
+                autostart: 'true'
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+<!-- 1. jquery library -->
+<script
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js">
+</script>
+ 
+<!-- 2. flowplayer -->
+<script src="http://releases.flowplayer.org/5.3.2/flowplayer.min.js"></script>
+ 
+<!-- 3. skin -->
+<link rel="stylesheet" type="text/css"
+   href="http://releases.flowplayer.org/5.3.2/skin/minimalist.css" />
+    </h:head>
+    <h:body>
+        <h:form id="main-form">
+
+             
+
+            <p:commandLink actionListener="#{arcade.insertCoin()}" ajax="true">
+                <img src="http://upload.wikimedia.org/wikipedia/commons/5/50/Bitcoin.png" style="width: 96px;"/>
+                insert bitcoin here
+            </p:commandLink>
+
+ <script>
+$(".flowplayer").flowplayer({
+ 
+   // option 1
+   keyboard: false
+ 
+});
+</script>
+                <!-- global options -->
+<script>
+
+flowplayer.conf.keyboard = false;
+
+</script>
+                        <p:remoteCommand name="insertCoin" actionListener="#{arcade.insertCoin()}"/>
+                        <p:remoteCommand name="start" actionListener="#{arcade.start()}"/>
+                        <p:remoteCommand name="keyUp" actionListener="#{arcade.keyUp()}"/>
+                        <p:remoteCommand name="keyDown" actionListener="#{arcade.keyDown()}"/>
+                        <p:remoteCommand name="right" actionListener="#{arcade.right()}"/>
+                        <p:remoteCommand name="insertCoin" actionListener="#{arcade.right()}"/>
+                        <p:remoteCommand name="shift" actionListener="#{arcade.shift()}"/>
+<script>
+var xTriggered = 0;
+$(document).keypress(function(event) {
+  if ( event.which == 53 ) {
+     insertCoin();
+     //alert();
+   } else if (event.which == 49) {
+       start();
+   }
+});
+$(document).keydown(function(event) {
+    //alert(event.keyCode);
+     keyDown([{name:'keycode', value: event.keyCode}]);
+});
+$(document).keyup(function(event) {
+     keyUp([{name:'keycode', value: event.keyCode}]);
+});
+</script>
+        </h:form>
+        
+        <div class="flowplayer" data-rtmp="rtmp://177.132.30.199:8072/flvplayback/" style="width: 640px; height: 480px;">
+
+    <video autoplay="true" keyboard='false'>
+    <!-- consumed by flash -->
+    <source type="video/flash" src="test"/>
+ 
+    <!-- consumed by html5 video tag -->
+  </video>
+ 
+</div>    
+
+           
+</h:body>
+</html>
+

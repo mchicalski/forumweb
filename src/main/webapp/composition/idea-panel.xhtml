@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <p:panelGrid id="ideas" style="width: 290px;" styleClass="window2 shadow">
+                <p:row rendered="#{ideaView.showCreateIdea(issue)}">
+                    <p:column style="width: 100%;">
+                        <p:selectOneMenu style="z-index: 2013;" value="#{ideaView.selectedResource}">
+                            <f:selectItems value="#{ideaView.listResourcesToIssue(issue)}" var="resource" itemLabel="#{resource.name}" itemValue="#{resource.name}"/>
+                        </p:selectOneMenu> AND
+                    </p:column>
+                    <p:column style="max-width: 32px;">
+                        <p:commandLink action="#{ideaView.createIdea(issue)}">
+                            <p:graphicImage value="/images/Lightbulb-Add.png"/>
+                        </p:commandLink>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="2">
+              <h:dataTable value="#{ideaView.ideas}" var="idea" style="border-spacing: 0; border-width: 0px;"  styleClass="window shadow">
+
+                    <h:column>
+                        <f:facet name="header">
+                            <div style="background-color: #ddd; border-spacing: 0; border-width: 0px; " styleClass="shadow window"> Ideias </div>
+                        </f:facet>
+                        
+                              <p:commandLink action="#{ideaView.open(idea)}" styleClass="header-link" >
+                                  <p:graphicImage value="/images/Lightbulb-Off.png" rendered="#{!idea.winning}"/> 
+                                  <p:graphicImage value="/images/Lightbulb.png" rendered="#{idea.winning}"/> 
+                                  <h:outputText value="#{templateView.getTemplateForIdea(idea)}" />
+                              </p:commandLink>
+                        <p:outputPanel id="oba2" style="width: 300px;">
+                            <p:outputPanel rendered="#{ideaView.compareOpenedIdea(idea)}">
+                                  <ui:insert>
+                                      <ui:include src="argument-panel.xhtml">
+                                          <ui:param name="idea" value="#{idea}"/>
+                                      </ui:include>
+                                  </ui:insert>
+                              </p:outputPanel> 
+                            </p:outputPanel>
+                    </h:column>
+                  
+                  <h:column>
+                        <f:facet name="header">
+                            <div style="background-color: #ddd; border-spacing: 0; border-width: 0px; " styleClass="shadow window"> Votos </div>
+                        </f:facet>
+                      <p:commandLink action="#{voteView.vote(idea)}">
+                        <div align="center" style="max-width: 50px;">
+                            <p:graphicImage value="/images/#{voteView.getCoinImageFor(idea)}"/><br/>
+                            
+                            <h:outputText value="#{ideaView.score(idea)}" style="font-size: 12px; " />
+                            
+                        </div>
+                      </p:commandLink>
+
+                  </h:column>
+                    
+                </h:dataTable>
+                    </p:column>
+                </p:row>
+            </p:panelGrid>
+
+
+            
+        </ui:composition>
+        <!--
+        <p:panelGrid id="taxonomy2"  styleClass="window2">
+            <p:row >
+                <p:column colspan="2">
+                    ideas
+                </p:column>
+            </p:row>
+            <p:row >
+                <p:column>
+                    <p:selectOneMenu /> AND
+                </p:column>
+                <p:column>
+                    <p:graphicImage value="/images/Lightbulb-Add.png"/>
+                </p:column>
+            </p:row>
+            <p:row >
+                <p:column >
+                    <p:graphicImage value="/images/Lightbulb-Off.png"/> Toda Pessoa é Thing 1 2 3 4 5 6 7 8 9 2 2 2 2 2 2 2 2 3 23 23 23 23 2 32 324 234 234 234 2 42 34 2.
+                </p:column>
+                <p:column >
+                    <p:graphicImage value="/images/Coin-Single-Gold.png"/>
+                    <h:outputText value="1.33" style="font-size: 12px; " />
+                </p:column>
+            </p:row>
+            <p:row >
+                <p:column >
+                   
+                    <p:graphicImage value="/images/Lightbulb.png"/> 
+                    <p:graphicImage value="/images/Error.png" style="margin-left: -8px; "/>
+                    <p:graphicImage value="/images/Comment.png" style="margin-left: -8px; "/>
+                    Toda Pessoa é Agente
+                </p:column>
+                <p:column >
+                    <p:graphicImage value="/images/Coin-Single-Silver.png"/>
+                    <h:outputText value="3.66" style="font-size: 12px; " />
+                </p:column>
+            </p:row>
+        </p:panelGrid>  
+        -->
+    </h:body>
+</html>
+

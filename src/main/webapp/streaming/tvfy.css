@@ -1,0 +1,58 @@
+/* 
+    Document   : tvfy
+    Created on : Jan 23, 2013, 11:38:06 PM
+    Author     : mauricio
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.epg-header {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    background-color: #000;
+}
+
+.epg-header td {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    background-color: #999;
+    color: black;
+}
+
+.epg-link {
+    text-decoration: none;
+    color: black;
+}
+
+.epg-table {
+    border-width: 0px;
+    border-color: black;
+    border-style: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.epg-table td {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    background-color: #eee;
+    color: black;
+    text-decoration: none;
+    
+}
+
+.epg-table td:hover {
+
+    background-color: #fff;
+}
+
+.epg-table td:first-child {
+    background-color: #fff;
+    width: 100px;
+    height: 30px;
+    color: black;
+    text-align: center;
+    
+}

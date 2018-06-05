@@ -1,0 +1,88 @@
+<html>
+
+<head>
+	<script src="jwplayer/jwplayer.js"></script>
+	<script>jwplayer.key="vdmnmdK3YPT/RoyJFdbwoogxLwCjHnQSBYR7vQ=="</script>
+</head>
+
+<body style="background-color: black;">
+    <div id='my-video' style="margin-left: auto; margin-right: auto;"></div>
+    <script type='text/javascript'>
+        jwplayer('my-video').setup({
+            //file: 'http://201.22.53.192:8010/teste.flv',
+            file: 'http://pdl.stream.aol.com/pdlext/aol/brightcove/us/moviefone/trailers/2011/transformersdarkofthemoon_037111/transformersdarkofthemoon_trlr_04_720p_dl.mov',
+            width: '854',
+            height: '480',
+	    autostart: 'true',
+	   plugins: {
+	     "captions-2": {
+	       file: "captions.srt"
+	     }
+	   },
+            
+        });
+    </script>
+    
+    -----
+<ul>
+  <li><a href="#" onclick="jwplayer().load({file: 'http://www.decayfilm.com/download/Decay_2012_Low.mp4'}); jwplayer().play(true);">
+    Decay Full Movie
+  </a></li>
+  <li><a href="#" onclick="jwplayer().load({file: 'http://trailers.apple.com/movies/independent/scarymovie5/scarymovie5_h720p.mov'}); jwplayer().play(true);">
+    Scary
+  </a></li>
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/Sintel/sintel-2048-stereo.mp4'}); jwplayer().play(true);">
+    Sintel
+  </a></li>
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/ZeitgeistTheMovie/Zeitgeist_512kb.mp4'}); jwplayer().play(true);">
+    Zeitgeist
+  </a></li>
+
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/ZEITGEIST_ADDENDUM/Zeitgeist.Ad_512kb.mp4'}); jwplayer().play(true);">
+    Zeitgeist Ad
+  </a></li>
+
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/Night.Of.The.Living.Dead_1080p/NightOfTheLivingDead_720p_512kb.mp4'}); jwplayer().play(true);">
+    NightOfTheLivingDead
+  </a></li>
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/BigBuckBunny/big_buck_bunny_720p_h264.mov'}); jwplayer().play(true);">
+    Big Buck Bunny
+  </a></li>
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/AsdBeyondTheWallsOfEryx/ASD-Beyond.the.walls.of.Eryx.720p.mp4'}); jwplayer().play(true);">
+    ASD-Beyond.the.walls.of.Eryx.720p
+  </a></li>
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/AsdRupture/ASD-Rupture.1080p.mp4'}); jwplayer().play(true);">
+    ASD-Rupture.1080p
+  </a></li>
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/AsdAndExcessElectricBullet/Electric_Bullet.1080p.mp4'}); jwplayer().play(true);">
+    Electric_Bullet.1080p
+  </a></li>
+
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/Psysun1976/1976.mp4'}); jwplayer().play(true);">
+    PsySun[1976]
+  </a></li>
+
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/IronMaiden-IronMaiden/09-IronMaiden.mp3'}); jwplayer().play(true);">
+    09-IronMaiden.mp3
+  </a></li>
+
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/IronMaiden-Powerslave-1984/01AcesHigh.mp3'}); jwplayer().play(true);">
+    01AcesHigh.mp3
+  </a></li>
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/IronMaiden-SomewhereInTime/02-WastedYears.mp3'}); jwplayer().play(true);">
+   02-WastedYears.mp3
+  </a></li>
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/BlackSabbath-SabbathBloodySabbath/BlackSabbath-SabbathBloodySabbath.mp3'}); jwplayer().play(true);">
+    BlackSabbath-SabbathBloodySabbath.mp3
+  </a></li>
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/La-Educacion-Prohibida/Educacion.mp4'}); jwplayer().play(true);">
+    La-Educacion-Prohibida
+  </a></li>
+  <li><a href="#" onclick="jwplayer().load({file: 'http://archive.org/download/InternetArchiveCreativeCommonsPromo/SubsBurnedInVideos%2FIACC-Promo-HD.EN.mp4'}); jwplayer().play(true);">
+    Internet Archive promo
+  </a></li>
+</ul>
+
+</body>
+
+</html>

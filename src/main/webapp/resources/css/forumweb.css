@@ -1,0 +1,137 @@
+/* 
+    Document   : forumweb
+    Created on : Nov 1, 2012, 2:34:28 AM
+    Author     : mauricio
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.header {
+    margin-left: 0px;
+    margin-top: 0px;
+}
+.header-bar {
+    background-color: #eee;
+    box-shadow: 2px 2px 5px #aaa;
+   -o-box-shadow: 2px 2px 5px #aaa;
+   -webkit-box-shadow: 2px 2px 5px #aaa;
+   -moz-box-shadow: 2px 2px 5px #aaa;
+   margin-top: 0px;
+   position: fixed;
+   width: 100%;
+   z-index: 100;
+   text-decoration: none;
+}
+
+.header-link {
+    text-decoration: none;
+    color: black;
+}
+
+.header-link:hover {
+    text-decoration: underline;
+}
+
+.shadow {
+box-shadow: 2px 2px 5px #aaa;
+   -o-box-shadow: 2px 2px 5px #aaa;
+   -webkit-box-shadow: 2px 2px 5px #aaa;
+   -moz-box-shadow: 2px 2px 5px #aaa;
+   position:absolute;
+   
+}
+
+.window { 
+border: none;
+border-color: #aaa;
+opacity:0.98;
+filter:alpha(opacity=98);
+width: 290px;
+margin-left: 8px;
+z-index:20; position:absolute;
+font-family:helvetica;
+font-size:0.99em;
+}
+.window2 { 
+border: none;
+border-color: #aaa;
+opacity:0.98;
+filter:alpha(opacity=98);
+width: 240px;
+margin-left: 8px;
+z-index:10; position:absolute;
+font-family:helvetica;
+font-size:0.99em;
+}
+.active {
+	border:5px dashed #69c;
+        z-index: 9999;
+}
+
+.hover {
+	border:1px dotted red;
+}
+
+.ui-panelgrid td {
+    background-color: #eee;
+    border-style: solid;
+}
+
+.ui-panelgrid td:hover {
+    background-color: #fafafa;
+}
+
+.ui-panelgrid tr{
+    font-size: 0.98em;
+}
+
+.ui-datatable {
+    font-size: 14px;
+}
+
+.ui-panel {
+    font-size: 14px;
+}
+
+.mytable {
+    border-style: none;
+    border-spacing: 1px;
+    background-color: darkgrey;
+    margin-left:-11px;
+    margin-top:-5px;
+    margin-bottom: -5px;
+    margin-right: -11px;
+    width: 290px;
+    
+}
+
+
+.mytable td {
+    border-style: none;
+    width: 100%;
+}
+
+
+.full{
+    width: 100%;
+    text-align: left;
+}
+
+/** chorme and safari **/
+::-webkit-input-placeholder {
+	color: gray !important;
+	font-weight: normal !important;
+}
+ 
+/** firefox **/
+:-moz-placeholder {
+	color: gray !important;
+	font-weight: normal !important;
+}
+ 
+/** IE **/
+.ui-watermark {
+	color: gray !important;
+	font-weight: normal !important;
+}
+

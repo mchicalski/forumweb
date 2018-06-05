@@ -1,0 +1,37 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+
+    </head>
+    <body>
+
+      <object class="player_tv" id="NSPlay" 
+         codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715" 
+         type="application/x-oleobject" height="430" 
+         standby="Loading Microsoft Windows Media Player components..." width="600" 
+         classid="CLSID:22d6f312-b0f6-11d0-94ab-0080c74c7e95">
+            <param name="Filename" value="http://srv3.zoeweb.tv:1935/z133-live/stream/playlist.m3u8" />
+         <param name="ShowDisplay" value="0" />
+         <param name="ShowGotoBar" value="0" />
+         <param name="ShowPositionControls" value="0" />
+
+         <param name="ShowStatusBar" value="0" />
+         <param name="ShowTracker" value="0" />
+         <param name="TransparentAtStart" value="-1" />
+         <param name="AutoRewind" value="1" />
+         <param name="PlayCount" value="0" />
+         <embed width="600" height="430" type="application/x-mplayer2" 
+         pluginspage="http://www.microsoft.com/isapi/redir.dll?prd=windows&amp;sbp=mediaplayer&amp;ar=Media&amp;sba=Plugin&amp;" 
+             showdisplay="0" showgotobar="0" showpositioncontrols="0" 
+         showstatusbar="0" showtracker="0" transparentatstart="-1" filename="http://srv3.zoeweb.tv:1935/z133-live/stream/playlist.m3u8" autorewind="1" playcount="0"> </embed>
+      </object>        
+        
+    </body>
+</html>

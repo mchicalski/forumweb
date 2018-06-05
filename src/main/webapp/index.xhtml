@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body style="margin-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; font-size: 14px;">
+        <h:form id="main-form">
+           
+            <p:ajaxStatus>
+                <f:facet name="start">
+                    <div style="position: fixed; width: 100%; height: 100%; background-color: white; opacity: 0.50; z-index: 10000;">
+                        <p:graphicImage value="/images/ajax-loading.gif" style="position: fixed; left: 50%; top:50%;"/>
+                    </div>
+                    
+                </f:facet>
+                <f:facet name="complete">
+                    <h:outputText value="" />
+                </f:facet>
+            </p:ajaxStatus>
+            
+            <p:growl id="growl" showDetail="true"/>
+            <ui:insert>
+                <ui:include src="composition/header-panel.xhtml"/>
+            </ui:insert>
+            
+            <br/>
+            <br/>
+            <br/>
+               
+
+            <div style="position: absolute; margin-top: -400px;">
+                <h:outputText id="out" value="#{counter.count}" styleClass="ui-widget display" />
+                <p:commandButton value="Click" actionListener="#{counter.increment}" />
+            </div>
+                                <p:socket onMessage="handleMessage" channel="/counter" />
+                                <script type="text/javascript">
+                                    function handleMessage(data) {
+                                        $('.display').html(data);
+                                    }
+                                </script>
+            
+            <p:outputPanel rendered="#{headerView.compareView('login')}">
+                <ui:insert >
+                    <ui:include src="composition/login-panel.xhtml"/>
+                </ui:insert>
+            </p:outputPanel>
+            
+            <p:outputPanel rendered="#{headerView.compareView('register')}">
+            <ui:insert>
+                <ui:include src="composition/register-panel.xhtml"/>
+            </ui:insert>
+            </p:outputPanel>
+
+            <p:outputPanel rendered="#{headerView.compareView('team')}">
+            <ui:insert>
+                <ui:include src="composition/group-panel.xhtml"/>
+            </ui:insert>
+            </p:outputPanel>
+            
+            <p:outputPanel id="home" rendered="#{headerView.compareView('home')}">
+            <div id="divx" style="margin-left: 48px; margin-right: 48px;">
+                <p:outputPanel id="new-group">
+                    <table style="margin-left: 8px;" >
+                        <tr>
+
+                            <td>
+                                <p:graphicImage value="/images/Group-Add.png"/>
+                            </td>
+                            <td>
+                                <p:commandLink value="novo grupo" action="#{teamView.toogleCreating()}" process="@none" styleClass="header-link" update=":main-form"/>
+                            </td>
+
+                        </tr>
+                    </table>
+                </p:outputPanel>
+                <p:outputPanel rendered="#{teamView.creating}">
+                    <table>
+                        <tr>
+                        <td>
+                            <p:inputText id="new-group-name" value="#{teamView.selected.name}"/>
+                            <p:watermark for="new-group-name" value="nome do grupo"/>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                            <p:inputTextarea id="new-group-description" value="#{teamView.selected.description}"/>
+                            <p:watermark for="new-group-description" value="descrição do grupo"/>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                            <p:commandLink action="#{teamView.toogleCreating()}" process="@none" styleClass="header-link" update=":main-form">
+                            <p:graphicImage value="/images/Cancel.png"/>
+                            </p:commandLink>
+                            <p:commandLink action="#{teamView.create()}" process="new-group-name new-group-description" update=":main-form" styleClass="header-link">
+                            <p:graphicImage value="/images/Tick.png"/>
+                            </p:commandLink>
+                        </td>
+                        </tr>
+                    </table>
+                </p:outputPanel>
+                <p:dataTable id="group-list" var="grupo" value="#{teamView.listAllTeams()}" style="margin-top: 4px;">  
+                    <p:column headerText="grupo" style="width: 50%;">  
+                        <p:commandLink action="#{teamView.open(grupo)}" process="@none" update=":main-form" styleClass="header-link">
+                        <h3>
+                        <h:outputText value="#{grupo.name}" />  
+                        </h3>
+                        </p:commandLink>
+                        <h:outputText value="#{grupo.description}" />  
+                        
+                    </p:column>  
+                    <p:column headerText="ontologias" style="text-align: center;">  
+                        <h:outputText value="#{ontologyView.countByTeam(grupo)}" />  
+                    </p:column>  
+                    <p:column headerText="conceitos" style="text-align: center;">  
+                        <h:outputText value="#{resourceView.countAllByTeam(grupo)}" />  
+                    </p:column>  
+                    <p:column headerText="participantes" style="text-align: center;">  
+                        <h:outputText value="#{grupo.id}" />  
+                    </p:column>  
+                    <p:column headerText="última atualização">  
+                        <h:outputText value="Wed Dec 05 19:00:58 BRST 2012 por mauricio" />  
+                    </p:column>  
+                </p:dataTable>  
+
+            </div>
+                <p:socket channel="/groupsUpdate">
+                    <p:ajax event="message" update=":main-form:group-list :main-form:new-group" />
+                </p:socket>
+            </p:outputPanel>
+            <br/>
+            <br/>
+        </h:form>
+ 
+    </h:body>
+        
+</html>
+

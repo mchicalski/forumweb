@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition>
+        <p:panelGrid id="argument"  styleClass="window2">
+            <p:row >
+                <p:column  headerText="argumentos" style="width: 100%;">
+                    <p:inputText id="arg" value="#{argumentView.text}"/>
+                    <p:watermark for="arg" value="argumente aqui"/>
+                </p:column>
+                <p:column>
+                    <p:commandLink action="#{argumentView.create()}" title="criar argumento" update="argument">
+                        <p:graphicImage value="/images/Comment-Add.png"/>
+                    </p:commandLink>
+                </p:column>
+            </p:row>
+                <p:row>
+                    <p:column colspan="2">
+                        <h:dataTable value="#{argumentView.findAllByIdea(idea)}" var="argument" style="border-spacing: 0; border-width: 0px;"  styleClass="window shadow">
+
+                    <h:column>
+                        <f:facet name="header">
+                            <div style="background-color: #ddd; border-spacing: 0; border-width: 0px; " styleClass="shadow window"> Argumentos </div>
+                        </f:facet>
+                                  <p:graphicImage value="/images/Comment.png"/> 
+                                  <h:outputText value="#{argument.user.username}: #{argument.text}" />
+                    </h:column>
+              </h:dataTable>
+                    </p:column>
+                </p:row>
+        </p:panelGrid>
+
+        </ui:composition>
+    </h:body>
+</html>
+
